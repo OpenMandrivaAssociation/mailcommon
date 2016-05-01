@@ -24,7 +24,9 @@ BuildRequires: cmake(KF5Libkdepim)
 BuildRequires: cmake(KF5KDELibs4Support)
 BuildRequires: cmake(Qt5UiTools)
 BuildRequires: cmake(KF5MessageCore)
+BuildRequires: cmake(KF5MailImporter)
 BuildRequires: sasl-devel
+BuildRequires: xsltproc
 
 %description
 KDE library for mail handling
