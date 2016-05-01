@@ -21,6 +21,9 @@ BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5Test)
 BuildRequires: cmake(Qt5Qml)
 BuildRequires: cmake(KF5Libkdepim)
+BuildRequires: cmake(KF5KDELibs4Support)
+BuildRequires: cmake(Qt5UiTools)
+BuildRequires: cmake(KF5MessageCore)
 BuildRequires: sasl-devel
 
 %description
