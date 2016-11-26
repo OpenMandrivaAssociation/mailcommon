@@ -25,7 +25,9 @@ BuildRequires: cmake(KF5KDELibs4Support)
 BuildRequires: cmake(Qt5UiTools)
 BuildRequires: cmake(KF5MessageCore)
 BuildRequires: cmake(KF5MailImporter)
+BuildRequires: cmake(KF5Akonadi)
 BuildRequires: sasl-devel
+BuildRequires: boost-devel
 BuildRequires: xsltproc
 
 %description
@@ -50,10 +52,9 @@ Development files (Headers etc.) for %{name}.
 %prep
 %setup -q
 %apply_patches
+%cmake_kde5
 
 %build
-%cmake_kde5
-cd ../
 %ninja -C build
 
 %install
