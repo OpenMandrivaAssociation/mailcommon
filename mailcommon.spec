@@ -53,6 +53,8 @@ BuildRequires: cmake(KF5PimCommonAkonadi)
 BuildRequires: cmake(KF5TemplateParser)
 BuildRequires: cmake(Phonon4Qt5)
 BuildRequires: cmake(KF5DesignerPlugin)
+BuildRequires: cmake(QGpgme)
+BuildRequires: cmake(Gpgmepp)
 BuildRequires: sasl-devel
 BuildRequires: boost-devel
 BuildRequires: xsltproc
