@@ -58,6 +58,9 @@ BuildRequires: cmake(Gpgmepp)
 BuildRequires: sasl-devel
 BuildRequires: boost-devel
 BuildRequires: xsltproc
+# For QCH format docs
+BuildRequires: doxygen
+BuildRequires: qt5-assistant
 
 %description
 KDE library for mail handling
