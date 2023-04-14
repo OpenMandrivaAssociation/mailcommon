@@ -1,16 +1,18 @@
 %define major 5
-%define libname %mklibname KF5MailCommon %{major}
-%define devname %mklibname KF5MailCommon -d
+%define oldlibname %mklibname KF5MailCommon 5
+%define libname %mklibname KPim5MailCommon
+%define olddevname %mklibname KF5MailCommon -d
+%define devname %mklibname KPim5MailCommon -d
 
 Name: mailcommon
-Version:	22.12.3
+Version:	23.03.90
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
 %else
 %define ftpdir stable
 %endif
-Release:	2
+Release:	1
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Summary: KDE library for mail handling
 URL: http://kde.org/
@@ -44,12 +46,12 @@ BuildRequires: cmake(KF5Akonadi)
 BuildRequires: cmake(KF5AkonadiMime)
 BuildRequires: cmake(KF5MailImporter)
 BuildRequires: cmake(KF5MailTransport)
-BuildRequires: cmake(KF5MessageComposer)
-BuildRequires: cmake(KF5MessageCore)
-BuildRequires: cmake(KF5MessageViewer)
+BuildRequires: cmake(KPim5MessageComposer)
+BuildRequires: cmake(KPim5MessageCore)
+BuildRequires: cmake(KPim5MessageViewer)
 BuildRequires: cmake(KF5Mime)
 BuildRequires: cmake(KF5PimCommonAkonadi)
-BuildRequires: cmake(KF5TemplateParser)
+BuildRequires: cmake(KPim5TemplateParser)
 BuildRequires: cmake(KF5Libkdepim)
 BuildRequires: cmake(Phonon4Qt5)
 BuildRequires: cmake(KF5DesignerPlugin)
@@ -69,6 +71,7 @@ KDE library for mail handling
 Summary: KDE library for mail handling
 Group: System/Libraries
 Requires: %{name} = %{EVRD}
+%rename %{oldlibname}
 
 %description -n %{libname}
 KDE library for mail handling
@@ -77,13 +80,13 @@ KDE library for mail handling
 Summary: Development files for %{name}
 Group: Development/C
 Requires: %{libname} = %{EVRD}
+%rename %{olddevname}
 
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 %cmake_kde5
 
 %build
@@ -99,7 +102,7 @@ Development files (Headers etc.) for %{name}.
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
-%{_libdir}/qt5/plugins/designer/mailcommonwidgets.so
+%{_libdir}/qt5/plugins/designer/mailcommon5widgets.so
 
 %files -n %{devname}
 %{_includedir}/*
