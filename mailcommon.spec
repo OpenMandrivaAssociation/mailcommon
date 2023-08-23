@@ -5,7 +5,7 @@
 %define devname %mklibname KPim5MailCommon -d
 
 Name: mailcommon
-Version:	23.04.3
+Version:	23.08.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -42,17 +42,17 @@ BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(KF5XmlGui)
 BuildRequires: cmake(KF5DBusAddons)
 BuildRequires: cmake(KF5SyntaxHighlighting)
-BuildRequires: cmake(KF5Akonadi)
-BuildRequires: cmake(KF5AkonadiMime)
-BuildRequires: cmake(KF5MailImporter)
-BuildRequires: cmake(KF5MailTransport)
+BuildRequires: cmake(KPim5Akonadi)
+BuildRequires: cmake(KPim5AkonadiMime)
+BuildRequires: cmake(KPim5MailImporter)
+BuildRequires: cmake(KPim5MailTransport)
 BuildRequires: cmake(KPim5MessageComposer)
 BuildRequires: cmake(KPim5MessageCore)
 BuildRequires: cmake(KPim5MessageViewer)
-BuildRequires: cmake(KF5Mime)
-BuildRequires: cmake(KF5PimCommonAkonadi)
+BuildRequires: cmake(KPim5Mime)
+BuildRequires: cmake(KPim5PimCommon)
 BuildRequires: cmake(KPim5TemplateParser)
-BuildRequires: cmake(KF5Libkdepim)
+BuildRequires: cmake(KPim5Libkdepim)
 BuildRequires: cmake(Phonon4Qt5)
 BuildRequires: cmake(KF5DesignerPlugin)
 BuildRequires: cmake(QGpgme)
