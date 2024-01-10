@@ -12,7 +12,7 @@ Version:	23.08.4
 %else
 %define ftpdir stable
 %endif
-Release:	2
+Release:	3
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Summary: KDE library for mail handling
 URL: http://kde.org/
