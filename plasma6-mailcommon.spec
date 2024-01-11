@@ -3,7 +3,7 @@
 %define devname %mklibname KPim6MailCommon -d
 
 Name: plasma6-mailcommon
-Version:	24.01.85
+Version:	24.01.90
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -95,9 +95,9 @@ Development files (Headers etc.) for %{name}.
 
 %install
 %ninja_install -C build
-%find_lang libmailcommon
+%find_lang libmailcommon6
 
-%files -f libmailcommon.lang
+%files -f libmailcommon6.lang
 %{_datadir}/qlogging-categories6/mailcommon.categories
 %{_datadir}/qlogging-categories6/mailcommon.renamecategories
 
