@@ -20,7 +20,7 @@ Source0:	https://invent.kde.org/pim/mailcommon/-/archive/%{gitbranch}/mailcommon
 Source0: http://download.kde.org/%{ftpdir}/release-service/%{version}/src/mailcommon-%{version}.tar.xz
 %endif
 Summary: KDE library for mail handling
-URL: http://kde.org/
+URL: https://kde.org/
 License: GPL
 Group: System/Libraries
 BuildRequires: cmake(ECM)
