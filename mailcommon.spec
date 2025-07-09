@@ -5,7 +5,7 @@
 %define libname %mklibname KPim6MailCommon
 %define devname %mklibname KPim6MailCommon -d
 
-Name: plasma6-mailcommon
+Name: mailcommon
 Version:	25.04.0
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
