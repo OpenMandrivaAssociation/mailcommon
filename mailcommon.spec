@@ -6,7 +6,7 @@
 %define devname %mklibname KPim6MailCommon -d
 
 Name: mailcommon
-Version:	25.04.0
+Version:	25.04.3
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
 %if %{is_beta}
 %define ftpdir unstable
@@ -74,6 +74,10 @@ BuildRequires: xsltproc
 # For QCH format docs
 BuildRequires: doxygen
 BuildRequires: qt6-qttools-assistant
+%rename plasma6-mailcommon
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %description
 KDE library for mail handling
@@ -94,20 +98,7 @@ Requires: %{libname} = %{EVRD}
 %description -n %{devname}
 Development files (Headers etc.) for %{name}.
 
-%prep
-%autosetup -p1 -n mailcommon-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-%find_lang libmailcommon6
-
-%files -f libmailcommon6.lang
+%files -f %{name}.lang
 %{_datadir}/qlogging-categories6/mailcommon.categories
 %{_datadir}/qlogging-categories6/mailcommon.renamecategories
 
